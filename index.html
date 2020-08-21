@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>jsTheremin</title>
+  <script src="js/handtrack.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/handtrackjs@latest/dist/handtrack.min.js"></script> -->
+  <style>
+    #video_in {
+      display: none;/*hide input src*/
+    }
+  </style>
+</head>
+<body>
+
+  <fieldset>
+    <legend>Input</legend>
+    <video autoplay="autoplay" id="video_in"></video>
+    <canvas id="canvas_out"></canvas>
+    <div>
+      <span>flipHorizontal: <input type="checkbox" id="flipHorizontal"/></span>
+      <span>imgScaleFactor: <input type="range" min="0.1" max="1.5" value="1" step="0.1" id="imageScaleFactor"/><span id="imageScaleFactor_out"></span></span>
+      <span>maxNumBoxes: <input type="range" min="1" max="20" value="2" step="1" id="maxNumBoxes"/><span id="maxNumBoxes_out"></span></span>
+      <span>iouThreshold: <input type="range" min="0.01" max="1" value="0.5" step="0.01" id="iouThreshold"/><span id="iouThreshold_out"></span></span>
+      <span>scoreThreshold: <input type="range" min="0.01" max="1" value="0.6" step="0.01" id="scoreThreshold"/><span id="scoreThreshold_out"></span></span>
+  </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Output</legend>
+    <div>
+      <span>Wave: <select id="wave">
+        <option value="sine">Sine</option>
+        <option value="triangle">Triangle</option>
+        <option value="square">Square</option>
+        <option value="sawtooth">Sawtooth</option>
+      </select></span>
+      <span>minFreq: <input type="range" min="1" max="1000" value="1" step="10" id="minFreq"/><span id="minFreq_out"></span></span>
+      <span>maxFreq: <input type="range" min="500" max="10000" value="10000" step="10" id="maxFreq"/><span id="maxFreq_out"></span></span>
+      <span>Quantize: <input type="checkbox" id="quantize"/></span>
+    </div>
+
+    <div id="output"></div>
+  </fieldset>
+
+  <!-- The Code -->
+  <script src="js/input.js"></script>
+  <script src="js/output.js"></script>
+
+</body>
+</html>
